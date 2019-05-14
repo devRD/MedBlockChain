@@ -73,4 +73,11 @@ describe('Testing ContextProvider', () => {
     expect(instance.state.productData.dose).toBe('2 mg')
     expect(instance.getDose()).toBe(2)
   })
+
+  test('Dose range: Getting', () => {
+    const component = create(<ContextProvider />)
+    const instance = component.getInstance()
+
+    expect(instance.getDoseRange()).toEqual({ minDose: 0, maxDose: 40 })
+  })
 })
