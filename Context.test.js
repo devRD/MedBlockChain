@@ -78,6 +78,18 @@ describe('Testing ContextProvider', () => {
     expect(instance.state.genuineDrugs).toEqual([default_manufacturedDrugs[1]])
   })
 
+  test('state: patientDrugHistory - initializing', () => {
+    // 2x drugs are manufactured during mounting (via .setupDemoChain())
+    // 1x if the 2x drug is checked OUT during mounting (via .setupDemoChain())
+    const patientDrugHistory = [
+      {
+        dateTaken: new Date('2018-08-03T14:00:00.000Z'),
+        productData: default_manufacturedDrugs[0],
+      },
+    ]
+    expect(instance.state.patientDrugHistory).toEqual(patientDrugHistory)
+  })
+
   // Private functions
   test('makeHashSalt (private function)', () => {
     const hashSalt = instance.makeHashSalt()
