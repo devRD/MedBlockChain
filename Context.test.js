@@ -142,6 +142,13 @@ describe('Testing ContextProvider', () => {
   test('Dose range: Getting', () => {
     expect(instance.getDoseRange()).toEqual({ minDose: 0, maxDose: 40 })
   })
+
+  // TODO: .setupDemoChain()
+
+  // TODO: .checkIN()
+
+  // TODO: .checkOUT()
+
   test('Prescription dose: updating (adding) correctly', () => {
     instance.updatePrescriptionDose() // add nothing
     expect(instance.state.prescriptionDose).toEqual([0, 100, 0])
@@ -154,4 +161,6 @@ describe('Testing ContextProvider', () => {
     instance.updatePrescriptionDose(-60, -50) // substract from both sides
     expect(instance.state.prescriptionDose).toEqual([0, 100, 0])
   })
+
+  // TODO: test that Provider exports correct value
 })
