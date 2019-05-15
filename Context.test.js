@@ -16,6 +16,7 @@ const [
   default_hashSalt,
   default_productionTime,
   default_manufacturedDrugs,
+  default_prescriptionDose,
 ] = [
   'CPHarma',
   'rosuvastatin',
@@ -38,6 +39,7 @@ const [
       productionUnit: 'CPHarma',
     },
   ],
+  [0, 100, 0],
 ]
 
 describe('Testing ContextProvider', () => {
@@ -88,6 +90,10 @@ describe('Testing ContextProvider', () => {
       },
     ]
     expect(instance.state.patientDrugHistory).toEqual(patientDrugHistory)
+  })
+
+  test('state: prescriptionDose - initializing', () => {
+    expect(instance.state.prescriptionDose).toEqual(default_prescriptionDose)
   })
 
   // Private functions
