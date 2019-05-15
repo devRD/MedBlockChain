@@ -78,10 +78,13 @@ describe('Testing ContextProvider', () => {
   })
 
   test('state: manfacturedDrugs - initializing', () => {
+    // 2x drugs are manufactured during mounting (via .setupDemoChain())
     expect(instance.state.manufacturedDrugs).toEqual(default_manufacturedDrugs)
   })
 
   test('state: genuineDrugs - initializing', () => {
+    // 2x drugs are manufactured during mounting (via .setupDemoChain())
+    // 1x if the 2x drug is checked OUT during mounting (via .setupDemoChain()) leaving 1x genuine drug left
     expect(instance.state.genuineDrugs).toEqual(default_genuineDrugs)
   })
 
