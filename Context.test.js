@@ -16,6 +16,7 @@ const [
   default_hashSalt,
   default_productionTime,
   default_manufacturedDrugs,
+  default_genuineDrugs,
 ] = [
   'CPHarma',
   'rosuvastatin',
@@ -30,6 +31,15 @@ const [
       productionTime: '2018-08-01 09:00',
       productionUnit: 'CPHarma',
     },
+    {
+      compound: 'rosuvastatin',
+      dose: '5 mg',
+      hashSalt: 'ABC99 ABC99',
+      productionTime: '2018-09-04 14:00',
+      productionUnit: 'CPHarma',
+    },
+  ],
+  [
     {
       compound: 'rosuvastatin',
       dose: '5 mg',
@@ -69,6 +79,10 @@ describe('Testing ContextProvider', () => {
 
   test('state: manfacturedDrugs - initializing', () => {
     expect(instance.state.manufacturedDrugs).toEqual(default_manufacturedDrugs)
+  })
+
+  test('state: genuineDrugs - initializing', () => {
+    expect(instance.state.genuineDrugs).toEqual(default_genuineDrugs)
   })
 
   // Private functions
