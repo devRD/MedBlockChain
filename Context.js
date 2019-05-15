@@ -1,8 +1,8 @@
+import remove from 'lodash/remove'
 import React, { Component } from 'react'
 import { getHashOfproductData } from './cloudComputing/Block'
 import Blockchain from './cloudComputing/Blockchain'
 import Conventions from './constants/Conventions'
-import remove from 'lodash/remove'
 
 const SHA256 = require('crypto-js/sha256')
 
