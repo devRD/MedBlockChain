@@ -16,7 +16,6 @@ const [
   default_hashSalt,
   default_productionTime,
   default_manufacturedDrugs,
-  default_genuineDrugs,
 ] = [
   'CPHarma',
   'rosuvastatin',
@@ -31,15 +30,6 @@ const [
       productionTime: '2018-08-01 09:00',
       productionUnit: 'CPHarma',
     },
-    {
-      compound: 'rosuvastatin',
-      dose: '5 mg',
-      hashSalt: 'ABC99 ABC99',
-      productionTime: '2018-09-04 14:00',
-      productionUnit: 'CPHarma',
-    },
-  ],
-  [
     {
       compound: 'rosuvastatin',
       dose: '5 mg',
@@ -85,7 +75,7 @@ describe('Testing ContextProvider', () => {
   test('state: genuineDrugs - initializing', () => {
     // 2x drugs are manufactured during mounting (via .setupDemoChain())
     // 1x if the 2x drug is checked OUT during mounting (via .setupDemoChain()) leaving 1x genuine drug left
-    expect(instance.state.genuineDrugs).toEqual(default_genuineDrugs)
+    expect(instance.state.genuineDrugs).toEqual([default_manufacturedDrugs[1]])
   })
 
   // Private functions
