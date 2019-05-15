@@ -24,7 +24,7 @@ const [
 ]
 
 describe('Testing ContextProvider', () => {
-  // TODO: verify that blockchain instance is in state
+  // TODO: state: blockchain
 
   test('state: productData - initializing correctly', () => {
     const {
@@ -42,6 +42,14 @@ describe('Testing ContextProvider', () => {
     expect(productionTime).toMatch(default_productionTime)
   })
 
+  // TODO: state: productDataHash
+
+  test('state: drugMetaData - initializing correctly', () => {
+    expect(instance.state.drugMetaData).toEqual({
+      productionUnit: default_productionUnit,
+    })
+  })
+
   // Private functions
   test('makeHashSalt (private function)', () => {
     const hashSalt = instance.makeHashSalt()
@@ -49,7 +57,7 @@ describe('Testing ContextProvider', () => {
   })
 
   test('getDefaultproductData (private function)', () => {
-    // Calling it with all arguments
+    // Calling it with all arguments (different from default args)
     const [productionUnitTest, productionTimeTest, hashSaltTest] = [
       'Company Name',
       '2020-12-24 24:00',
