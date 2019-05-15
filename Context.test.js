@@ -43,7 +43,7 @@ const [
 describe('Testing ContextProvider', () => {
   // TODO: state: blockchain
 
-  test('state: productData - initializing correctly', () => {
+  test('state: productData - initializing', () => {
     const {
       productionUnit,
       compound,
@@ -61,13 +61,13 @@ describe('Testing ContextProvider', () => {
 
   // TODO: state: productDataHash
 
-  test('state: drugMetaData - initializing correctly', () => {
+  test('state: drugMetaData - initializing', () => {
     expect(instance.state.drugMetaData).toEqual({
       productionUnit: default_productionUnit,
     })
   })
 
-  test('state: manfacturedDrugs - initializing correctly', () => {
+  test('state: manfacturedDrugs - initializing', () => {
     expect(instance.state.manufacturedDrugs).toEqual(default_manufacturedDrugs)
   })
 
@@ -108,7 +108,7 @@ describe('Testing ContextProvider', () => {
     // Verify that getting the dose returns a correct number (and not a string)
     expect(instance.getDose()).toBe(5)
 
-    // Verify that changing the dose updates and can be retrieved correctly
+    // Verify that changing the dose updates and can be retrieved
     instance.setDose(2)
     expect(instance.state.productData.dose).toBe('2 mg')
     expect(instance.getDose()).toBe(2)
