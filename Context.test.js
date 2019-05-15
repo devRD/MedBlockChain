@@ -142,4 +142,16 @@ describe('Testing ContextProvider', () => {
   test('Dose range: Getting', () => {
     expect(instance.getDoseRange()).toEqual({ minDose: 0, maxDose: 40 })
   })
+  test('Prescription dose: updating (adding) correctly', () => {
+    instance.updatePrescriptionDose() // add nothing
+    expect(instance.state.prescriptionDose).toEqual([0, 100, 0])
+    instance.updatePrescriptionDose(40) // add to the left side
+    expect(instance.state.prescriptionDose).toEqual([40, 100, 0])
+    instance.updatePrescriptionDose(0, 40) // add to the right side
+    expect(instance.state.prescriptionDose).toEqual([40, 100, 40])
+    instance.updatePrescriptionDose(20, 10) // add to both sides
+    expect(instance.state.prescriptionDose).toEqual([60, 100, 50])
+    instance.updatePrescriptionDose(-60, -50) // substract from both sides
+    expect(instance.state.prescriptionDose).toEqual([0, 100, 0])
+  })
 })
